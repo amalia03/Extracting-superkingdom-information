@@ -20,28 +20,24 @@ Here I deposit my own scripts since they were the initial gruntwork that allowed
 Reads in the blast file and retrieves the subjectid from each result.
 output file: nt_identifiers.tsv
 
-Then I use 
+Then I use:
 `sort-u nt_identifiers.tsv > nt_identifiers_uniq.tsv`
 
 To get only unique identifiers from the file. 
 Next, I initiated the command: 
+
 **./Acctaxid.pl**
+
 Which reads in the taxidentifiers, the name.dmp and accession taxid files, creates a hash for all defined values seen in the files and 
 Used as such: 
 `./Acctaxid.pl nt_identifiers_uniq.tsv > nt_accids_species.tsv`
 
-After getting the file above which contains the subj ID, taxID, Species name and Common name, I type the following command: 
+After getting the file above which contains the subj ID, taxID, Species name and Common name, I typed the following command: 
 `awk '!a[$2]++' nt_accids_species.tsv > nt_uniq_accids.tsv`
 
-to only get unique taxid values. That is followed by the command: 
+to only get unique taxid values. That is followed by the command to remove empty spaces: 
 `awk  '$3!=""' nt_uniq_accids.tsv > nt_accids_uniq_nna.tsv`
 
-To remove the emppty spaces
-
-Also I remove the common name as it is not the column that is used in this analysis
+Also I remove the common name as it is not the column that is used in this analysis:
 `cut -f1,2,3 nt_accids_uniq_nna.tsv > nt_accids_uniq_nna_nc.tsv`
-
-
-cut -f1,2,3 nt_accids_uniq_nna.tsv > nt_accids_uniq_nna_nc.tsv
-
 
