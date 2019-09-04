@@ -78,3 +78,19 @@ So we reach a point now that the file has all the information we need to find th
 
 So if the superkingdom command gets stuck, we follow the next few steps: 
 
+`grep -A2 "add_last_string" nt_accids`
+
+..where last string is the number at which the script got stuck (as they are all unique, and are taken in in order, then it should pick up the desired string and the one above it.  
+
+Then we make note of that string from the nt_accids_clean.tsv by using.. 
+
+`grep "culprit_string" nt_accids_clean.tsv `
+
+...and append the broken_strings.tsv file with the culprit string and then redo the ./remove_broken_strings.pl part of the workflow.
+
+----
+After getting the superkingdom, we need to define what those groups are. Since there are only a few values that link to a superkingdom,it is easy to create an index table and refer to that using a script like this : 
+
+`./indexing_nodes.pl > nt_accid_sk.tsv`
+
+Where the script uses the dependable "superkingdom_indices.tsv" to find the groups of the superkingdom groups. 
