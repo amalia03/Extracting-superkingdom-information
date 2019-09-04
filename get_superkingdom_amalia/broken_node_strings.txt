@@ -1,0 +1,16 @@
+Eukaryotic
+eukaryotic
+Prokaryotic
+prokaryotic
+Unidentified
+unidentified
+Uncultured
+uncultured
+Synthetic
+synthetic
+Cloning
+cloning
+Construct
+construct
+vector
+replicon
