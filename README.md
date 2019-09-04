@@ -56,6 +56,19 @@ The command used for this script should be like this:
 
 The ./remove_broken_strings.pl command has one dependable text file called broken_strings.tsv which it us appended every time there is a problematic entry. 
 
+After that we use a cut command to only retain the accid column as such: 
+
+`cut -f2 nt_accids_clean.tsv > nt_accids.tsv`
+
+Finally we get to the main command of this workflow, which is:
+
+**get_superkingdoms.pl**
+
+What this command does is traverse the taxonomic branches available in the nodes_dmp until it reaches a superkingdom level (Prokaryote, Eukaryote, Archaea, Virus, Unidentified).
+
+The command format: 
+
+`get_superkingdoms.pl nt_accids.tsv > accid_nodes.tsv`
 
 
 ----
