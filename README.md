@@ -30,14 +30,18 @@ Next, I initiated the command:
 
 Which reads in the taxidentifiers, the name.dmp and accession taxid files, creates a hash for all defined values seen in the files and 
 Used as such: 
+
 `./Acctaxid.pl nt_identifiers_uniq.tsv > nt_accids_species.tsv`
 
 After getting the file above which contains the subj ID, taxID, Species name and Common name, I typed the following command: 
+
 `awk '!a[$2]++' nt_accids_species.tsv > nt_uniq_accids.tsv`
 
 to only get unique taxid values. That is followed by the command to remove empty spaces: 
+
 `awk  '$3!=""' nt_uniq_accids.tsv > nt_accids_uniq_nna.tsv`
 
 Also I remove the common name as it is not the column that is used in this analysis:
+
 `cut -f1,2,3 nt_accids_uniq_nna.tsv > nt_accids_uniq_nna_nc.tsv`
 
