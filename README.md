@@ -12,7 +12,10 @@ Also the scripts takes in a BLAST output whose format should be like :
 '6 qseqid sseqid stitle ssciname scomname staxid qlen slen qstart qend
  sstart send evalue score length pident nident gapopen gaps qcovs' -num_threads 25
  -max_target_seqs 10
- 
+
+------
+This was not used after it was written even though it works as LMJs script is shorter and does the job in way less steps. 
+
 **/get_superkingdom_amalia/**
 Here I deposit my own scripts since they were the initial gruntwork that allowed me to figure out how to establish the workflow but it is a bit more inelegant than it can be. Still easier to see the reasoning behind each step.
 
@@ -45,8 +48,19 @@ Also I remove the common name as it is not the column that is used in this analy
 
 `cut -f1,2,3 nt_accids_uniq_nna.tsv > nt_accids_uniq_nna_nc.tsv`
 
+Then I use a script called **remove_broken_strings.pl** whose use is explained better below but for now, it is utilized in such a way that would remove certain "broken" entries that would otherwise initiate an infinite loop during the node traversing stage. 
+
+The command used for this script should be like this: 
+
+`./remove_broken_strings.pl nt_accids_uniq_nna_nc.tsv > nt_accids_clean.tsv`
+
+The ./remove_broken_strings.pl command has one dependable text file called broken_strings.tsv which it us appended every time there is a problematic entry. 
+
+
+
 ----
 
-So we reach a point now that the file has all the information needed to find out the superkingdom of each entry. However there are a few entries whose nodes will lead to an infinite loop. What I did in this case was to find out where the loop was getting stuck by following the steps below: 
+So we reach a point now that the file has all the information we need to find the superkingdom for each entry. However there are a few entries whose nodes will lead to an infinite loop. What I did in this case was to find out where the loop was getting stuck by following the steps below: 
+
 
 ./get_superkingdoms.pl nt_accids.tsc > acc_nodes.tsv
