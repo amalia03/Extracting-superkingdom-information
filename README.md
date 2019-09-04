@@ -45,3 +45,8 @@ Also I remove the common name as it is not the column that is used in this analy
 
 `cut -f1,2,3 nt_accids_uniq_nna.tsv > nt_accids_uniq_nna_nc.tsv`
 
+----
+
+So we reach a point now that the file has all the information needed to find out the superkingdom of each entry. However there are a few entries whose nodes will lead to an infinite loop. What I did in this case was to find out where the loop was getting stuck by following the steps below: 
+
+./get_superkingdoms.pl nt_accids.tsc > acc_nodes.tsv
