@@ -94,3 +94,12 @@ After getting the superkingdom, we need to define what those groups are. Since t
 `./indexing_nodes.pl > nt_accid_sk.tsv`
 
 Where the script uses the dependable "superkingdom_indices.tsv" to find the groups of the superkingdom groups. 
+
+Then we just get back to linking the taxonomic Ids to the subject Id from the blast output from the beginning of this workflow using 
+
+**index_to_subject.pl**
+
+like this: 
+`./index_to_subject.pl > super_nodes.tsv`
+
+And finally the taxIDS can be visualized using the R script available called **superkingdom_distributions.R**.
