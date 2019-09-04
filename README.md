@@ -14,7 +14,7 @@ Also the scripts takes in a BLAST output whose format should be like :
  -max_target_seqs 10
 
 ------
-This was not used after it was written even though it works as LMJs script is shorter and does the job in way less steps. 
+The following workflow was not used after it was written even though it works. LMJs script is shorter and does the job in way less steps. 
 
 **/get_superkingdom_amalia/**
 Here I deposit my own scripts since they were the initial gruntwork that allowed me to figure out how to establish the workflow but it is a bit more inelegant than it can be. Still easier to see the reasoning behind each step.
@@ -66,14 +66,15 @@ Finally we get to the main command of this workflow, which is:
 
 What this command does is traverse the taxonomic branches available in the nodes_dmp until it reaches a superkingdom level (Prokaryote, Eukaryote, Archaea, Virus, Unidentified).
 
-The command format: 
+The command format : 
 
 `get_superkingdoms.pl nt_accids.tsv > accid_nodes.tsv`
 
+Note:should include nodes.dmp in the same directory or change directory information in the script. 
 
 ----
 
 So we reach a point now that the file has all the information we need to find the superkingdom for each entry. However there are a few entries whose nodes will lead to an infinite loop. What I did in this case was to find out where the loop was getting stuck by following the steps below: 
 
+So if the superkingdom command gets stuck, we follow the next few steps: 
 
-./get_superkingdoms.pl nt_accids.tsc > acc_nodes.tsv
