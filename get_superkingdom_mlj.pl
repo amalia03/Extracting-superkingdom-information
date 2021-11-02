@@ -64,7 +64,7 @@ print STDERR "Finished parsing the blast file $!\n";
 
 @subjects = sort keys %subjects;
 
-## Then we have the thing that takes a long time.. we expect.
+## Then we create an index file for the accid and subjid.
 ##
 open(OUT, ">", "subject_taxid.map") || die "unable to open subject_taxid.map for \
 writing $!\n";
