@@ -105,7 +105,7 @@ like this:
 And finally the taxIDS can be visualized using the R script available called **superkingdom_distributions.R**.
 
 
-###Update: 11.2.2021###
+### Update: 2.11.2021 ###
 
 I have rewritten the last R script to include the latest R visualisation and a more streamlined code, **superkingdom_distributions_v02_01.R**
 
