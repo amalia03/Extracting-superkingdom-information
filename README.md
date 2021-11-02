@@ -1,5 +1,5 @@
 # Extracting-superkingdom-information
-Contains my own long script pipeline and MLJ's one -in-all script that groups the fasta sequences by tracing back their superkingdom information . 
+Contains my own long and by extension defunct script pipeline and MLJ's one -in-all script that groups the fasta sequences by tracing back their superkingdom information . 
 Other than the scripts, what is required are the following:
 
 The NCBI taxonomy database information downloaded from this link:
@@ -103,3 +103,9 @@ like this:
 `./index_to_subject.pl > super_nodes.tsv`
 
 And finally the taxIDS can be visualized using the R script available called **superkingdom_distributions.R**.
+
+
+###Update: 11.2.2021
+
+I have rewritten the last R script to include the latest R visualisation and a more streamlined code, **superkingdom_distributions_v02_01.R**
+
