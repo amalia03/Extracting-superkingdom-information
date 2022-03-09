@@ -1,5 +1,5 @@
 # Extracting-superkingdom-information
-Contains my own long and by extension defunct script pipeline and MLJ's one -in-all script that groups the fasta sequences by tracing back their superkingdom information . 
+Contains my own long and by extension defunct script pipeline and LMJ's one -in-all script that groups the fasta sequences by tracing back their superkingdom information . 
 Other than the scripts, what is required are the following:
 
 The NCBI taxonomy database information downloaded from this link:
